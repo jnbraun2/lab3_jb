@@ -12,7 +12,7 @@
 
   <!-- Adding the modules, API key, and map constant necessary for a full screen map app. -->
   <script>  
-    require(["esri/config", "esri/Map", "esri/views/MapView"], function(esriConfig, Map, MapView) { 
+    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/BasemapGallery"], function(esriConfig, Map, MapView, basemapGallery) { 
       
       esriConfig.apiKey = "AAPKcf47264e32794af29b8505a640992140dTOZDTXkDMXGQTuCncQfjuHjEesD1DFlJERirFncgdHb7Ok0f1ko4f6m-N_jnQ8N";
       
@@ -26,6 +26,11 @@
           zoom: 13, // Zoom level
           container: "viewDiv" // Div element
       });
+
+      const basemapGallery = new BasemapGallery({
+        view: view
+     });
+
     });  
   </script>
 
