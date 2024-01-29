@@ -46,7 +46,9 @@
       });
       
       const searchWidget = new Search({
-        view: view
+        view: view,
+        includeDefaultSources: true,
+        locationEnabled: true,
       }); 
 
       view.ui.add(searchWidget, {
@@ -54,7 +56,7 @@
         index: 1
 
       });
-      
+
     });  
   </script>
 
