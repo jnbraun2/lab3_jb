@@ -12,8 +12,8 @@
 
   <!-- Adding the modules, API key, and map constant necessary for a full screen map app. -->
   <script>  
-    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/BasemapGallery", "esri/widgets/Locate"], 
-    function(esriConfig, Map, MapView, BasemapGallery, Locate) { 
+    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/BasemapGallery", "esri/widgets/Locate", "esri/widgets/Search"], 
+    function(esriConfig, Map, MapView, BasemapGallery, Locate, Search) { 
       
       esriConfig.apiKey = "AAPKcf47264e32794af29b8505a640992140dTOZDTXkDMXGQTuCncQfjuHjEesD1DFlJERirFncgdHb7Ok0f1ko4f6m-N_jnQ8N";
       
@@ -44,7 +44,17 @@
         position: "top-left",
         index: 2
       });
+      
+      const searchWidget = new Search({
+        view: view
+      }); 
 
+      view.ui.add(searchWidget, {
+        position: "top-left",
+        index: 1
+
+      });
+      
     });  
   </script>
 
