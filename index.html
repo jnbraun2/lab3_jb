@@ -76,7 +76,7 @@
 
       graphicsLayer.add(pointGraphic);
 
-      // Create a line geometry
+      // Create a line geometry.
       const polyline = {
         type: "polyline",
         paths: [
@@ -86,12 +86,20 @@
         ]
       };
 
+      //Create style for line. 
       const simpleLineSymbol = {
         type: "simple-line",
         color: [217, 79, 22], 
         width: 2
       };
+      
+      //Add line to graphic.
+      const polylineGraphic = new Graphic({
+        geometry: polyline,
+        symbol: simpleLineSymbol
+      });
 
+      graphicsLayer.add(polylineGraphic);
     });   
   </script>
 
