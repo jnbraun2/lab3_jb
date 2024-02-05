@@ -12,56 +12,92 @@
 
   <!-- Adding the modules, API key, and map constant necessary for a full screen map app. -->
   <script>
-    require([
-    "esri/config",
-    "esri/Map",
-    "esri/views/MapView",
-
+  require([
+    "esri/config", 
+    "esri/Map", 
+    "esri/views/MapView", 
+    "esri/layers/GraphicsLayer",
+    "esri/widgets/BasemapGallery", 
     "esri/Graphic",
-    "esri/layers/GraphicsLayer"
-
-    ], function(esriConfig,Map, MapView, Graphic, GraphicsLayer) {
-
-  esriConfig.apiKey = "YOUR_API_KEY";
-
-  const map = new Map({
-    basemap: "arcgis/topographic" // basemap styles service
-  });
+    "esri/widgets/Locate", 
+    "esri/widgets/Search", 
+    "esri/widgets/Search/LocatorSearchSource",
+ 
+    ], function(esriConfig, Map, MapView, GraphicsLayer, Graphic, BasemapGallery, Locate, Search) { 
+   
+  sriConfig.apiKey = "AAPKcf47264e32794af29b8505a640992140dTOZDTXkDMXGQTuCncQfjuHjEesD1DFlJERirFncgdHb7Ok0f1ko4f6m-N_jnQ8N";
+   
+  const map = new Map({ 
+    basemap: "satellite" // Basemap layer service 
+  });  
 
   const view = new MapView({
     map: map,
-    center: [-118.80500,34.02700], //Longitude, latitude
-    zoom: 13,
-    container: "viewDiv"
+    center: [-97.7431, 30.2672], // Longitude, latitude
+    zoom: 13, // Zoom level
+    container: "viewDiv" // Div element
   });
 
-  const graphicsLayer = new GraphicsLayer();
+  //Adding the constructor of the graphics layer.
+  const graphicsLayer = new GraphicsLayer();  
   map.add(graphicsLayer);
 
-  const point = { //Create a point
-    type: "point",
-    longitude: -118.80657463861,
-    latitude: 34.0005930608889
-  };
- 
-  const simpleMarkerSymbol = {
-    type: "simple-marker",
-    color: [226, 119, 40],  // Orange
-    outline: {
-        color: [255, 255, 255], // White
-        width: 1
-    }
+  //Creating a point.
+  const point = { 
+    type: "point",  
+    longitude: -97.750689,    
+    latitude: 30.263098
+  };  
+
+  //Defining the look of the symbol.
+  const simpleMarkerSymbol = {  
+    type: "simple-marker",  
+    color: [0, 0, 139],  // Color of blues rock
+    outline: {  
+      color: [255, 255, 255], // White  
+      width: 1
+    }  
   };
 
-  const pointGraphic = new Graphic({
-    geometry: point,
-    symbol: simpleMarkerSymbol
+  const pointGraphic = new Graphic({  
+    geometry: point,  
+    symbol: simpleMarkerSymbol  
+  });
+
+  graphicsLayer.add(pointGraphic);
+
+  //Adding basemap gallary.
+  const basemapGallery = new BasemapGallery({
+    view: view
+  });
+
+  view.ui.add(basemapGallery, {
+    position: "top-right"
+  });
+
+  //Adding locate widget.
+  const locate = new Locate({
+    view: view
+  });
+
+  view.ui.add(locate, {
+    position: "top-left",
+    index: 2
+  });
+
+  //Adding search widget.
+  const searchWidget = new Search({
+    view: view
+  }); 
+
+  view.ui.add(searchWidget, {
+    position: "top-left",
+    index: 0
   });
  
- graphicsLayer.add(pointGraphic);
+  });  
 
- });
-  </script>
+</script>
 
   <!-- CSS to make a full screen map -->
   <style>  html,  body,  #viewDiv {  padding: 0;  margin: 0;  height: 100%;  width: 100%;  }  </style> 
