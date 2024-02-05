@@ -42,7 +42,31 @@
   const graphicsLayer = new GraphicsLayer();  
   map.add(graphicsLayer);
 
-  //Adding basemap galary.
+  //Creating a point.
+  const point = { 
+    type: "point",  
+    longitude: -97.750689,    
+    latitude: 30.263098
+  };  
+
+  //Defining the look of the symbol.
+  const simpleMarkerSymbol = {  
+    type: "simple-marker",  
+    color: [0, 0, 139],  // Color of blues rock
+    outline: {  
+      color: [255, 255, 255], // White  
+      width: 1
+    }  
+  };
+
+  const pointGraphic = new Graphic({  
+    geometry: point,  
+    symbol: simpleMarkerSymbol  
+  });
+
+  graphicsLayer.add(pointGraphic);
+
+  //Adding basemap gallary.
   const basemapGallery = new BasemapGallery({
     view: view
   });
@@ -70,30 +94,6 @@
     position: "top-left",
     index: 0
   });
-
-  //Creating a point.
-  const point = { 
-    type: "point",  
-    longitude: -97.750689,    
-    latitude: 30.263098
-  };  
-
-  //Defining the look of the symbol.
-  const simpleMarkerSymbol = {  
-    type: "simple-marker",  
-    color: [0, 0, 139],  // Color of blues rock
-    outline: {  
-      color: [255, 255, 255], // White  
-      width: 1
-    }  
-  };
-
-  const pointGraphic = new Graphic({  
-    geometry: point,  
-    symbol: simpleMarkerSymbol  
-  });
-
-  graphicsLayer.add(pointGraphic);
     
   });  
   </script>
