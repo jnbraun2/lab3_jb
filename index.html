@@ -100,6 +100,36 @@
       });
 
       graphicsLayer.add(polylineGraphic);
+
+      //Create a polygon geometry.
+      const polygon = {
+        type: "polygon",
+        rings: [
+          [-97.753944, 30.260548],
+          [-97.75264, 30.261525],
+          [-97.751882, 30.260702],
+          [-97.753089, 30.259773]
+        ]
+      };
+      
+      //Create style for polygon.
+      const simpleFillSymbol = {
+        type: "simple-fill",
+        color: [217, 79, 22, 0.4],  // Orange, opacity 40%
+        outline: {
+          color: [0, 0, 0],
+          width: 1
+        }
+      };
+
+      //Add polygon to graphic.
+      const polygonGraphic = new Graphic({
+        geometry: polygon,
+        symbol: simpleFillSymbol,
+      });
+
+      graphicsLayer.add(polygonGraphic);
+      
     });   
   </script>
 
