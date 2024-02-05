@@ -38,61 +38,61 @@
           container: "viewDiv" // Div element
         });
       
-      const graphicsLayer = new GraphicsLayer();  
-      map.add(graphicsLayer);
+        const graphicsLayer = new GraphicsLayer();  
+        map.add(graphicsLayer);
 
-      const point = { //Create a point  
-        type: "point",  
-        longitude: -97.750689,    //long lat of Stevie Ray Vaughan Statue
-        latitude: 30.263098
-      };
+        const point = { //Create a point  
+          type: "point",  
+          longitude: -97.750689,    //long lat of Stevie Ray Vaughan Statue
+          latitude: 30.263098
+        };
   
-      const simpleMarkerSymbol = {  
-        type: "simple-marker",  
-        color: [0, 0, 139],  // Color of blues rock
-          outline: {  
-            color: [255, 255, 255], // White  
-            width: 1
-          }  
-      };
+        const simpleMarkerSymbol = {  
+          type: "simple-marker",  
+          color: [0, 0, 139],  // Color of blues rock
+            outline: {  
+              color: [255, 255, 255], // White  
+              width: 1
+            }  
+        };
   
-      const pointGraphic = new Graphic({  
-        geometry: point,  
-        symbol: simpleMarkerSymbol  
-      });
+        const pointGraphic = new Graphic({  
+          geometry: point,  
+          symbol: simpleMarkerSymbol  
+        });
   
-      graphicsLayer.add(pointGraphic);
+        graphicsLayer.add(pointGraphic);
 
-      //Adding basemap gallery.
-      const basemapGallery = new BasemapGallery({
-        view: view
-      });
+        //Adding basemap gallery.
+        const basemapGallery = new BasemapGallery({
+          view: view
+        });
 
-      view.ui.add(basemapGallery, {
-        position: "top-right"
-      });
+        view.ui.add(basemapGallery, {
+          position: "top-right"
+        });
 
-      //Adding locate widget.
-      const locate = new Locate({
-        view: view
-      });
+        //Adding locate widget.
+        const locate = new Locate({
+          view: view
+        });
 
-      view.ui.add(locate, {
-        position: "top-left",
-        index: 2
-      });
+        view.ui.add(locate, {
+          position: "top-left",
+          index: 2
+        });
   
-      //Adding search widget.
-      const searchWidget = new Search({
-        view: view
-      }); 
+        //Adding search widget.
+        const searchWidget = new Search({
+          view: view
+        }); 
 
-      view.ui.add(searchWidget, {
-        position: "top-left",
-        index: 0
-      });
+        view.ui.add(searchWidget, {
+          position: "top-left",
+          index: 0
+        });
 
-    });   
+      });   
   </script>
 
   <!-- CSS to make a full screen map -->
