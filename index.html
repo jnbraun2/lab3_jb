@@ -130,6 +130,12 @@
       });
 
       graphicsLayer.add(polygonGraphic);
+      
+      //Define a popup for hurricane_evac
+      const popuproads = {
+        "title": "Evacuation Roads",
+        "content" : "<b>Road Name:</b> {ROAD_NAME}<br>"
+      }
 
       //Added feature layer for hurricane evacuation routes in the US.
       const hurricane_evac = new FeatureLayer({
@@ -140,10 +146,7 @@
 
       map.add(hurricane_evac, 0);
 
-      const popuproads = {
-        "title": "Evacuation Roads",
-        "content" : "<b>Road Name:</b> {ROAD_NAME}<br>"
-      }
+      
 
     });   
   </script>
