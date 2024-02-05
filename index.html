@@ -133,15 +133,17 @@
 
       //Added feature layer for hurricane evacuation routes in the US.
       const hurricane_evac = new FeatureLayer({
-        url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Hurricane_Evacuation_Routes_1/FeatureServer"
+        url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Hurricane_Evacuation_Routes_1/FeatureServer",
+        outFields: ["ROAD_NAME"],
+        popuptemplate: popuproads
       });
 
       map.add(hurricane_evac, 0);
 
-      //const popuproads = {
-        //"title": "Evacuation Roads",
-        //"content" : "<b>Road Name:</b> {Road Name}<br><b>"
-      //}
+      const popuproads = {
+        "title": "Evacuation Roads",
+        "content" : "<b>Road Name:</b> {ROAD_NAME}<br>"
+      }
 
     });   
   </script>
