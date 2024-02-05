@@ -19,9 +19,11 @@
       "esri/widgets/BasemapGallery", 
       "esri/widgets/Locate", 
       "esri/widgets/Search", 
-      "esri/widgets/Search/LocatorSearchSource"],
+      "esri/widgets/Search/LocatorSearchSource", 
+      "esri/Graphic",  
+      "esri/layers/GraphicsLayer"],
       
-    function(esriConfig, Map, MapView, BasemapGallery, Locate, Search,) { 
+    function(esriConfig, Map, MapView, BasemapGallery, Locate, Search,Graphic, GraphicsLayer) { 
    
       esriConfig.apiKey = "AAPKcf47264e32794af29b8505a640992140dTOZDTXkDMXGQTuCncQfjuHjEesD1DFlJERirFncgdHb7Ok0f1ko4f6m-N_jnQ8N";
    
@@ -64,8 +66,34 @@
         position: "top-left",
         index: 0
       });
+      
+      //Adding graphics layer.
+      const graphicsLayer = new GraphicsLayer();  
+      map.add(graphicsLayer);
 
-      });   
+      const point = { //Create a point  
+        type: "point",  
+        longitude: -97.750689,    //long lat of Stevie Ray Vaughan Statue
+        latitude: 30.263098
+      };
+
+      const simpleMarkerSymbol = {  
+        type: "simple-marker",  
+        color: [0, 0, 139],  // Color of blues rock
+        outline: {  
+          color: [255, 255, 255], // White  
+          width: 1
+        }  
+      };
+
+      const pointGraphic = new Graphic({  
+        geometry: point,  
+        symbol: simpleMarkerSymbol  
+      });
+
+      graphicsLayer.add(pointGraphic);
+
+    });   
   </script>
 
   <!-- CSS to make a full screen map -->
