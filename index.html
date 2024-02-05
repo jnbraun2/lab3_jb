@@ -53,7 +53,8 @@
           width: 1
         }  
       };
-
+      
+      //Defining popup properties.
       const popupTemplate = {
         title: "{Name}",
         content: "{Description}"
@@ -66,7 +67,11 @@
 
       const pointGraphic = new Graphic({  
         geometry: point,  
-        symbol: simpleMarkerSymbol  
+        symbol: simpleMarkerSymbol,  
+        
+        //Added attributes.
+        attributes: attributes,
+        popupTemplate: popupTemplate
       });
 
       graphicsLayer.add(pointGraphic);
