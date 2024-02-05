@@ -37,7 +37,33 @@
         zoom: 13, // Zoom level
         container: "viewDiv" // Div element
       });
-  
+
+      //Adding graphics layer.
+      const graphicsLayer = new GraphicsLayer();  
+      map.add(graphicsLayer);
+
+      const point = { //Create a point  
+        type: "point",  
+        longitude: -97.750689,    //long lat of Stevie Ray Vaughan Statue
+        latitude: 30.263098
+      };
+
+      const simpleMarkerSymbol = {  
+        type: "simple-marker",  
+        color: [0, 0, 139],  // Color of blues rock
+        outline: {  
+          color: [255, 255, 255], // White  
+          width: 1
+        }  
+      };
+
+      const pointGraphic = new Graphic({  
+        geometry: point,  
+        symbol: simpleMarkerSymbol  
+      });
+
+      graphicsLayer.add(pointGraphic);
+
       //Adding basemap gallery.
       const basemapGallery = new BasemapGallery({
         view: view
@@ -67,32 +93,6 @@
         index: 0
       });
       
-      //Adding graphics layer.
-      const graphicsLayer = new GraphicsLayer();  
-      map.add(graphicsLayer);
-
-      const point = { //Create a point  
-        type: "point",  
-        longitude: -97.750689,    //long lat of Stevie Ray Vaughan Statue
-        latitude: 30.263098
-      };
-
-      const simpleMarkerSymbol = {  
-        type: "simple-marker",  
-        color: [0, 0, 139],  // Color of blues rock
-        outline: {  
-          color: [255, 255, 255], // White  
-          width: 1
-        }  
-      };
-
-      const pointGraphic = new Graphic({  
-        geometry: point,  
-        symbol: simpleMarkerSymbol  
-      });
-
-      graphicsLayer.add(pointGraphic);
-
     });   
   </script>
 
