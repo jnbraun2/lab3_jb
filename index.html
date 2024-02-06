@@ -139,9 +139,9 @@
 
       //Added feature layer for hurricane evacuation routes in the US.
       const usaeduLayer = new FeatureLayer({
-        url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Colleges_and_Universities_View/FeatureServer",
-        outFields: ["NAME","TOT_ENROLL"],
-        popupTemplate: popupEduusa
+      url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Colleges_and_Universities_View/FeatureServer",
+      outFields: ["NAME","TOT_ENROLL"],
+      popupTemplate: popupEduusa
       });
 
       map.add(usaedulayer, 0);
