@@ -148,8 +148,22 @@
       
       //Added a feature layer for US airports.
       const usaairports = new FeatureLayer({
-      url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports_jb/FeatureServer"  
+      url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports_jb/FeatureServer",
+      renderer: airportRenderer  
       })
+
+      
+      
+      //Adding icon for airports
+      const airportRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "https://github.com/jnbraun2/lab2_jb/blob/b0eaf3da5b4d41a03e665cedcdedc870e1525cd0/outline_local_airport_black_24dp.png",
+          "width": "18px",
+          "height": "18px"
+        }
+      }
 
       map.add(usaairports, 1);
 
