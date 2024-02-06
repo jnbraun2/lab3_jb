@@ -155,7 +155,7 @@
           "width": "18px",
           "height": "18px"
         }
-      };
+      }
 
       //const to make the airport labels
       const airportLabels = {
@@ -175,18 +175,7 @@
         labelExpressionInfo: {
           expression: "$feature.Fac_Name"
         }
-      };
-      
-      //Adding icon for heliports
-      const heliportRenderer = {
-        "type": "simple",
-        "symbol": {
-          "type": "picture-marker",
-          "url": "https://github.com/jnbraun2/lab2_jb/blob/main/icons8-helicopter-48.png?raw=true",
-          "width": "18px",
-          "height": "18px" 
-        }
-      };  
+      }; 
       
       //Added a feature layer for US airports.
       const usaairports = new FeatureLayer({
@@ -197,6 +186,17 @@
       });
 
       map.add(usaairports, 1);
+
+      //Adding icon for heliports
+      const heliportRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "https://github.com/jnbraun2/lab2_jb/blob/main/icons8-helicopter-48.png?raw=true",
+          "width": "18px",
+          "height": "18px" 
+        }
+      } 
 
       //Added a feature layer for US airports.
       const usaheliports = new FeatureLayer({
