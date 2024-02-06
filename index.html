@@ -130,21 +130,6 @@
       });
 
       graphicsLayer.add(polygonGraphic);
-      
-      //Define a popup for hurricane_evac
-      //const popupEduusa = {
-      //  "title": "EDUs",
-      //  "content": "<b>Name:</b> {NAME}<br><b>Total Enrollment:</b> {TOT_ENROLL}<br>"
-      //}
-
-      //Added feature layer for hurricane evacuation routes in the US.
-      //const usaeduLayer = new FeatureLayer({
-      //url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Colleges_and_Universities_View/FeatureServer",
-      //outFields: ["NAME","TOT_ENROLL"],
-      //popupTemplate: popupEduusa
-      //});
-
-      //map.add(usaeduLayer, 0);
 
       //Define a popup for hurricane_evac
       const usaroads = {
@@ -160,6 +145,13 @@
       });
 
       map.add(usahurrroads, 0);
+      
+      //Added a feature layer for US airports.
+      const usaairports = new FeatureLayer({
+      url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports_jb/FeatureServer"  
+      })
+
+      map.add(usaairports, 1);
 
     });   
   </script>
