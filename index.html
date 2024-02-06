@@ -145,16 +145,8 @@
       });
 
       map.add(usahurrroads, 0);
-      
-      //Added a feature layer for US airports.
-      const usaairports = new FeatureLayer({
-      url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports_jb/FeatureServer",
-      renderer: airportRenderer  
-      });
 
-      
-      
-      //Adding icon for airports
+      //Adding icon for airports.
       const airportRenderer = {
         "type": "simple",
         "symbol": {
@@ -164,6 +156,12 @@
           "height": "18px"
         }
       }
+      
+      //Added a feature layer for US airports.
+      const usaairports = new FeatureLayer({
+      url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports_jb/FeatureServer",
+      renderer: airportRenderer  
+      });
 
       map.add(usaairports, 1);
 
