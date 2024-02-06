@@ -132,18 +132,18 @@
       graphicsLayer.add(polygonGraphic);
       
       //Define a popup for hurricane_evac
-      const popupEDUusa = {
+      const popupEduusa = {
         "title": "EDUs",
         "content": "<b>Name:</b> {NAME}<br><b>Total Enrollment:</b> {TOT_ENROLL}<br>"
       }
 
       //Added feature layer for hurricane evacuation routes in the US.
-      const usaedulayer = new FeatureLayer({
+      const usaeduLayer = new FeatureLayer({
         url: "https://services2.arcgis.com/FiaPA4ga0iQKduv3/arcgis/rest/services/Colleges_and_Universities_View/FeatureServer",
         outFields: ["NAME","TOT_ENROLL"],
-        popuptemplate: popupEDUusa
-      });
-
+        popupTemplate: popupEduusa
+         });
+         
       map.add(usaedulayer, 0);
 
     });   
