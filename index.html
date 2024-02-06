@@ -155,7 +155,7 @@
           "width": "18px",
           "height": "18px"
         }
-      }
+      };
 
       //const to make the airport labels
       const airportLabels = {
@@ -177,6 +177,17 @@
         }
       };
       
+      //Adding icon for heliports
+      const heliportRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "https://github.com/jnbraun2/lab2_jb/blob/main/icons8-helicopter-48.png?raw=true",
+          "width": "18px",
+          "height": "18px" 
+        }
+      };  
+      
       //Added a feature layer for US airports.
       const usaairports = new FeatureLayer({
       url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports_jb/FeatureServer",
@@ -187,6 +198,15 @@
 
       map.add(usaairports, 1);
 
+      //Added a feature layer for US airports.
+      const usaheliports = new FeatureLayer({
+      url: "https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/US_Airports_jb/FeatureServer",
+      renderer: heliportRenderer,
+      definitionExpression: "Fac_Type = 'HELIPORT'", 
+      });
+
+      map.add(usaheliports, 1);
+      
     });   
   </script>
 
