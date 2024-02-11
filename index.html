@@ -219,6 +219,19 @@
       //Adding the feature layer to the map
       map.add(MyAirports, 2);
 
+      //Set the point layer's LayerInfo
+      const pointInfos = {
+        layer: myAirports
+      };
+
+      //Begin Editor constructor
+      const editor = new Editor({
+        view: view,
+        layerInfos: [pointInfos]
+      });
+
+      view.ui.add(editor, "top-right");
+
     });   
   </script>
 
