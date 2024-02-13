@@ -243,6 +243,7 @@
       const myAirports = new FeatureLayer({
         url:"https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/My_Airports_Jamie_Braun/FeatureServer",
         renderer: customairRenderer,
+        labelingInfo: [customairLabels]
       //adding the popup for myAirports
         outFields: ["AirportCode"],
       });
