@@ -208,10 +208,21 @@
 
       map.add(usaheliports, 2);
       
-      //adding the const for the feature layer
+      //Added a renderer for myAiports.
+      const customairRenderer = {
+        "type": "simple",
+        "symbol": {
+          "type": "picture-marker",
+          "url": "https://raw.githubusercontent.com/jnbraun2/lab3_jb/main/icons8-airport-50.png",
+          "width": "18px",
+          "height": "18px"
+        }
+      }
+
+      //Adding the const for the feature layer.
       const myAirports = new FeatureLayer({
         url:"https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/My_Airports_Jamie_Braun/FeatureServer",
-
+        renderer: customairRenderer,
       //adding the popup for myAirports
         outFields: ["AirportCode"],
       });
